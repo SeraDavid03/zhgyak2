@@ -1,0 +1,19 @@
+
+
+body {
+    background-color:lightblue;
+    font-weight: bold;
+}
+
+#nev {
+    padding: 20px;
+    text-align: center;
+}
+
+#cikk {
+    margin: auto;
+    width: 50%;
+
+    padding: 10px;
+    background-color: white;
+}
