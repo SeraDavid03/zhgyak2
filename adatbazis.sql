@@ -35,4 +35,4 @@ VALUES ('b','2025-01-01','dsa');
 INSERT INTO hir(cim, megjdatum, szoveg) 
 VALUES ('b','2026-01-01','dsa');
 SELECT*FROM hir;
-
+SELECT*FROM hozzaszolas;

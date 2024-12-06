@@ -3,7 +3,7 @@
 	{
 		// Kapcsolodas az adatbazishoz
 		try {
-			$db = new PDO("mysql:host=$hostname;port=$port;dbname=$dbname", $username, $password);
+			$db = new PDO("mysql:host=$hostname;port=$port;dbname=$dbname; charset=utf8", $username, $password);
 			$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			return $db;
 		}

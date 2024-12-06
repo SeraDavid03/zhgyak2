@@ -26,16 +26,16 @@
 </head>
 <body id = "hatter">
     <div id = nev>
-        <h1>Hírek</h1>
-        <p1>Séra Dávid, U7JZ93</p1>
+        <h id = "cim">Hírek</h>
+        <p id = "neptun">Séra Dávid, U7JZ93</p>
 </div>
     <div id = "cikk">
     <?php while ($a = $result->fetchObject()):
         if ($a->megjdatum > '2024-01-01'):?>
-            <h2><?=$a->cim?></h2>
-            <p><?=$a->megjdatum?></p>
-            <p><?=$a->szoveg?></p>
-            <p><?=$a->hozzaszolasokszama?> hozzászólás</p>
+            <h><?= htmlspecialchars($a->cim) ?></h>
+            <p><?= htmlspecialchars($a->megjdatum) ?></p>
+            <p><?= nl2br(htmlspecialchars($a->szoveg)) ?></p>
+            <p><?= htmlspecialchars($a->hozzaszolasokszama) ?> hozzászólás</p>
             <?php $comments = $db->query("
                 SELECT szerzo, hozzszoveg
                 FROM hozzaszolas
@@ -48,16 +48,20 @@
             </ul>
             <?php endwhile; ?>
             <p>Új Hozzászólás írása</p>
-            <div class="input">
-            <label for="input">Név:<br></label>
-            <input type="text" id="input" placeholder="">
-            <div class="input"><br>
-            <label for="input">Szöveg:<br></label>
-            <input type="text" id="input" placeholder="">
-            <br><br>
-            <button onclick="searchTable()">Küldés</button>
-            </div>
-            <hr>
+            <form action="comment.php" method="post">
+                <input type="hidden" name="hirid" value="<?= $a->article_id ?>">
+                <p>
+                    <div class="form-group">
+                    <label for="nev">Név:<br></label>
+                    <input type="text" name="nev" id="nev" required>
+                    </div>
+                </p>
+                <p>
+                    <label for="text">Szöveg:</label><br>
+                    <textarea name="szoveg" id="szoveg" rows="2" required></textarea>
+                </p>
+                <button type="submit">Küldés</button>
+            </form>
         <?php endif; ?>
     <?php endwhile; ?>
     </div>

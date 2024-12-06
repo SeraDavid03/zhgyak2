@@ -1,18 +1,35 @@
+#nev {
+    text-align: center;
+    font-size: 30px;
+}
 
+#neptun {
+    text-align: center;
+    font-size: 14px;
+}
 
 body {
     background-color:lightblue;
     font-weight: bold;
 }
 
-#nev {
-    padding: 20px;
-    text-align: center;
+.form-group {
+    margin-bottom: 10px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input {
+    width: 150px;
+    font-size: 14px;
+    text-align: left;
+    padding: 5px;
 }
 
 #cikk {
     margin: auto;
-    width: 50%;
+    width: 800px;
     padding: 10px;
     background-color: white;
 }
