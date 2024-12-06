@@ -22,6 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css"> 
+    <script src="script.js" defer></script>
     <title>Hírek</title>
 </head>
 <body id = "hatter">
@@ -47,7 +48,8 @@
                 <li><?=$b->szerzo?>: <?=$b->hozzszoveg?></li>
             </ul>
             <?php endwhile; ?>
-            <p>Új Hozzászólás írása</p>
+            <button id="toggle-button">Új Hozzászólás</button>
+            <div id ="comment-form">
             <form action="comment.php" method="post">
                 <input type="hidden" name="hirid" value="<?= $a->article_id ?>">
                 <p>
@@ -61,7 +63,8 @@
                     <textarea name="szoveg" id="szoveg" rows="2" required></textarea>
                 </p>
                 <button type="submit">Küldés</button>
-            </form>
+            </div>
+            <hr>
         <?php endif; ?>
     <?php endwhile; ?>
     </div>
